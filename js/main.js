@@ -1,13 +1,19 @@
 function load() {
-    /*var mydata = JSON.parse(data);
-    mydata.forEach(function(element) {
-    }, this);*/
     
     loadJSON(function response(params) {
         var mydata = JSON.parse(params);
+        var elem = document.getElementById("project-list");
+        var list = document.createElement("ul");
         mydata.forEach(function(element) {
+           var li = document.createElement("li");
+           var a = document.createElement("a");
+           a.href = element.url;
+           a.innerText = element.name;
+           li.appendChild(a);
+           list.appendChild(li);
             
         }, this);
+        elem.appendChild(list);
     })
 }
 
