@@ -7,13 +7,14 @@ function load() {
         mydata.forEach(function(element) {
            var li = document.createElement("li");
            var a = document.createElement("a");
-           a.href = element.url;
+           a.href = element.html_url;
            a.innerText = element.name;
            li.appendChild(a);
            list.appendChild(li);
             
         }, this);
         elem.appendChild(list);
+        
     })
 }
 
@@ -21,7 +22,7 @@ function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'projects.json', true);
+    xobj.open('GET', 'https://api.github.com/users/jensvaaben/repos', true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
 
@@ -33,4 +34,3 @@ function loadJSON(callback) {
     xobj.send(null);
 
 }
-
