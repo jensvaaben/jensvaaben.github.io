@@ -9,7 +9,9 @@ function load() {
            var a = document.createElement("a");
            a.href = element.html_url;
            a.innerText = element.name;
+           var l = document.createTextNode(": ".concat(element.description));
            li.appendChild(a);
+           li.appendChild(l);
            list.appendChild(li);
             
         }, this);
